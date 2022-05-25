@@ -35,7 +35,7 @@ const PmDetailImage = ({ level }) => {
       default:
         imgPath.current = soso;
     }
-  }, [level]);
+  }, [level, imgPath]);
 
   return (
     <PmDetailImageBlock>
