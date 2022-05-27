@@ -1,36 +1,9 @@
 import styled from 'styled-components';
 import colors from '../lib/styles/colors';
+import { useEffect, useState } from 'react';
 import { ReactComponent as GeoICO } from '../assets/geo.svg';
-import { Link } from 'react-router-dom';
-
-// 임시 데이터
-export const cities = [
-  '강남구',
-  '강동구',
-  '강서구',
-  '강북구',
-  '관악구',
-  '광진구',
-  '구로구',
-  '금천구',
-  '노원구',
-  '동대문구',
-  '도봉구',
-  '동작구',
-  '마포구',
-  '서대문구',
-  '성동구',
-  '성북구',
-  '서초구',
-  '송파구',
-  '영등포구',
-  '용산구',
-  '양천구',
-  '은평구',
-  '종로구',
-  '중구',
-  '중랑구',
-];
+import { Link, useParams } from 'react-router-dom';
+import { cities } from '../lib/cities/cityName';
 
 const CitySelectBlock = styled.div`
   height: 50px;
@@ -59,7 +32,7 @@ const GeoWrapper = styled.div`
 
 const Select = styled.select`
   cursor: pointer;
-  width: 135px;
+  width: 180px;
   height: 50px;
   border-radius: 8px;
   font-size: 18px;
@@ -92,6 +65,18 @@ const StyledLink = styled(Link)`
 `;
 
 const CitySelect = () => {
+  const { city } = useParams();
+  console.log(cities[city]);
+  const [select, setSelect] = useState(0);
+
+  const onChangeSelect = (e) => {
+    setSelect(e.target.value);
+  };
+
+  useEffect(() => {
+    setSelect(city);
+  }, [city]);
+
   return (
     <CitySelectBlock>
       <GeoWrapper>
@@ -99,19 +84,14 @@ const CitySelect = () => {
         <h3>Seoul</h3>
       </GeoWrapper>
       <StyledForm>
-        <Select className="hello">
+        <Select className="hello" value={select} onChange={onChangeSelect}>
           {cities.map((city, i) => (
             <option key={city} value={i}>
               {city}
             </option>
           ))}
         </Select>
-        <StyledLink
-          // select의 value대로 이동 (인덱스)
-          to={`/pm/0`}
-        >
-          조회
-        </StyledLink>
+        <StyledLink to={`/pm/${select}`}>조회</StyledLink>
       </StyledForm>
     </CitySelectBlock>
   );

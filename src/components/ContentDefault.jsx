@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import CitySelect from './CitySelect';
 import SeoulMap from './SeoulMap';
 import LevelInfo from './LevelInfo';
+import PmDefault from './PmDefault';
 import ModalButton from './ModalButton';
-import PmDetail from './PmDetail';
 
-const ContentBlock = styled.div`
+const ContentDefaultBlock = styled.div`
   display: flex;
   padding: 20px 100px;
   justify-content: center;
@@ -23,9 +23,9 @@ const InfoBlock = styled.div`
   flex-direction: column;
 `;
 
-const Content = () => {
+const ContentDefault = () => {
   return (
-    <ContentBlock>
+    <ContentDefaultBlock>
       <CityBlock>
         <CitySelect />
         <SeoulMap />
@@ -33,11 +33,11 @@ const Content = () => {
 
       <InfoBlock>
         <LevelInfo />
-        <PmDetail />
+        <PmDefault />
         <ModalButton />
       </InfoBlock>
-    </ContentBlock>
+    </ContentDefaultBlock>
   );
 };
 
-export default Content;
+export default ContentDefault;

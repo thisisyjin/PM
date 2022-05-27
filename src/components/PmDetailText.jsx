@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { cities } from './CitySelect'; // 인덱스로 어느 구인지 찾기
 import colors from '../lib/styles/colors';
+import { cities } from '../lib/cities/cityName';
 
 const PmDetailTextBlock = styled.div`
   margin-bottom: 18px;
@@ -22,10 +22,12 @@ const DateAreaWrapper = styled.div`
 `;
 
 const PmInfo = styled.div`
+  position: relative;
   margin-bottom: 10px;
-
+  cursor: pointer;
   .pm-level {
     display: inline-block;
+    cursor: pointer;
     font-size: 20px;
     font-weight: 500;
     padding: 3px 6px;
@@ -40,6 +42,30 @@ const PmInfo = styled.div`
         ? colors.level[2]
         : colors.level[3]};
   }
+
+  .pm-more {
+    display: none;
+    position: absolute;
+    top: -100px;
+    left: 30%;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: ${colors.trans[0]};
+    color: #fff;
+    text-align: center;
+
+    .pm-more-title {
+      font-size: 18px;
+      font-weight: 500;
+      margin-right: 8px;
+    }
+  }
+
+  &:hover {
+    .pm-more {
+      display: block;
+    }
+  }
 `;
 
 const MaskInfo = styled.div`
@@ -47,7 +73,7 @@ const MaskInfo = styled.div`
   font-weight: 700;
 `;
 
-const PmDetailText = ({ city, level }) => {
+const PmDetailText = ({ city, level, pm10, pm25 }) => {
   const month = new Date().getMonth() + 1;
   const date = new Date().getDate();
 
@@ -60,6 +86,10 @@ const PmDetailText = ({ city, level }) => {
       </DateAreaWrapper>
       <PmInfo level={level}>
         미세먼지 정도는 <span className="pm-level">{level}</span> 입니다.
+        <div className="pm-more">
+          <span className="pm-more-title">PM 10</span> {`${pm10} ㎍/㎥`} <br />{' '}
+          <span className="pm-more-title">PM 2.5</span> {`${pm25} ㎍/㎥`}
+        </div>
       </PmInfo>
 
       <MaskInfo>

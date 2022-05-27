@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import PmLevelICO from '../assets/pmLevel.svg';
 
 import verybad from '../assets/photos/sky1.jpg';
 import bad from '../assets/photos/sky2.jpg';
@@ -7,11 +8,27 @@ import soso from '../assets/photos/sky3.jpg';
 import good from '../assets/photos/sky4.jpg';
 
 const PmDetailImageBlock = styled.div`
+  position: relative;
   width: 340px;
   height: 230px;
   overflow: hidden;
   margin: 0 auto;
   margin-bottom: 16px;
+
+  /* &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(${PmLevelICO});
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  } */
 `;
 
 const PmDetailImage = ({ level }) => {
@@ -35,7 +52,7 @@ const PmDetailImage = ({ level }) => {
       default:
         imgPath.current = soso;
     }
-  }, [level, imgPath]);
+  }, [level]);
 
   return (
     <PmDetailImageBlock>

@@ -18,7 +18,7 @@ const LevelInfoBlock = styled.div`
 `;
 
 const LevelIcons = styled.div`
-  width: 280px;
+  width: 250px;
   height: 150px;
   display: flex;
   flex-wrap: wrap;
@@ -26,6 +26,10 @@ const LevelIcons = styled.div`
   align-items: center;
   margin: 0 auto;
   margin-bottom: 14px;
+
+  svg {
+    width: 40px;
+  }
 
   .very-bad {
     stroke: ${colors.level[0]};
@@ -43,7 +47,7 @@ const LevelIcons = styled.div`
 
   .desc {
     width: 60px;
-    font-size: 14px;
+    font-size: 15px;
     letter-spacing: -0.03em;
     margin-right: 10px;
     margin-left: 6px;
