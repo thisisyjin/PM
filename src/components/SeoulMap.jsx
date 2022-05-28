@@ -51,7 +51,6 @@ const CityArea = styled.div`
 
   &:hover {
     &::after {
-      background-color: ${colors.level[0]};
       width: 30px;
       height: 30px;
     }

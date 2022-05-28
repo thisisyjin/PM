@@ -24,13 +24,23 @@ const HeaderBlock = styled.div`
     font-weight: 400;
     letter-spacing: 0.07em;
     line-height: 40px;
-
     color: #fff;
 
     &:hover {
-      color: ${colors.trans[1]};
+      /* color: ${colors.trans[1]};
       .header-point {
         color: #fff;
+      } */
+      visibility: hidden;
+      &::after {
+        visibility: visible;
+        content: 'PM';
+        font-size: 48px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        color: #fff;
+        position: relative;
+        left: -130px;
       }
     }
 

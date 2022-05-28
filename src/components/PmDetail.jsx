@@ -27,6 +27,8 @@ const PmDetailBlock = styled.div`
     font-size: 22px;
 
     .error-point {
+      background-color: #ffea2d;
+      padding: 0 8px;
       font-size: 24px;
       font-weight: 700;
     }
