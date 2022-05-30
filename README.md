@@ -65,7 +65,7 @@ $ npm start || yarn start
 <br />
 
 
-## 🛠 
+## 🛠 dependencies
 - `create-react-app`
 ```
 "dependencies": {
