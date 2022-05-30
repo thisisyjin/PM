@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import CitySelect from './CitySelect';
 import SeoulMap from './SeoulMap';
 import LevelInfo from './LevelInfo';
-import ModalButton from './ModalButton';
-import PmDetail from './PmDetail';
+import ModalButtonContainer from '../containers/ModalButtonContainer';
+import PmDetailContainer from '../containers/PmDetailContainer';
 
 const ContentBlock = styled.div`
   display: flex;
@@ -33,8 +33,8 @@ const Content = () => {
 
       <InfoBlock>
         <LevelInfo />
-        <PmDetail />
-        <ModalButton />
+        <PmDetailContainer />
+        <ModalButtonContainer />
       </InfoBlock>
     </ContentBlock>
   );

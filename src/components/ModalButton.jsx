@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import colors from '../lib/styles/colors';
 import { ReactComponent as EarthICO } from '../assets/earth.svg';
 import Modal from './Modal';
-import { useState } from 'react';
 
 const ModalButtonBlock = styled.div`
   margin-top: 16px;
@@ -31,16 +30,7 @@ const StyledButton = styled.button`
   }
 `;
 
-const ModalButton = () => {
-  const [visible, setVisible] = useState(false);
-
-  const onOpenModal = () => {
-    setVisible(true);
-  };
-
-  const onCloseModal = () => {
-    setVisible(false);
-  };
+const ModalButton = ({ visible, onOpenModal, onCloseModal }) => {
   return (
     <ModalButtonBlock>
       <StyledButton onClick={onOpenModal}>

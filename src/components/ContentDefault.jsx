@@ -4,7 +4,7 @@ import CitySelect from './CitySelect';
 import SeoulMap from './SeoulMap';
 import LevelInfo from './LevelInfo';
 import PmDefault from './PmDefault';
-import ModalButton from './ModalButton';
+import ModalButtonContainer from '../containers/ModalButtonContainer';
 
 const ContentDefaultBlock = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ const ContentDefault = () => {
       <InfoBlock>
         <LevelInfo />
         <PmDefault />
-        <ModalButton />
+        <ModalButtonContainer />
       </InfoBlock>
     </ContentDefaultBlock>
   );

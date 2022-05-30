@@ -1,9 +1,6 @@
-import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import PmDetailImage from './PmDetailImage';
 import PmDetailText from './PmDetailText';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
 import colors from '../lib/styles/colors';
 
 // API 데이터 요청
@@ -42,29 +39,7 @@ const PmDetailBlock = styled.div`
   }
 `;
 
-const PmDetail = () => {
-  const [level, setLevel] = useState(null);
-  const [pm10, setPm10] = useState(0);
-  const [pm25, setPm25] = useState(0);
-
-  const { city } = useParams();
-  // '좋음', '보통', '나쁨', '매우나쁨' - API 데이터에서 가져오기
-  // response.RealtimeCityAir.row[도시인덱스].IDEX_NM
-
-  useEffect(() => {
-    if (city === 'undefined') return;
-    axios
-      .get(
-        'http://openapi.seoul.go.kr:8088/6d4d776b466c656533356a4b4b5872/json/RealtimeCityAir/1/99'
-      )
-      .then((response) => {
-        setLevel(response.data.RealtimeCityAir.row[city].IDEX_NM);
-        setPm10(response.data.RealtimeCityAir.row[city].PM10);
-        setPm25(response.data.RealtimeCityAir.row[city].PM25);
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [city]);
-
+const PmDetail = ({ level, pm10, pm25, city }) => {
   return (
     <PmDetailBlock>
       {city !== 'undefined' ? (

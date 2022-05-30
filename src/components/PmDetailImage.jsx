@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PmLevelICO from '../assets/pmLevel.svg';
 
@@ -32,33 +32,31 @@ const PmDetailImageBlock = styled.div`
 `;
 
 const PmDetailImage = ({ level }) => {
-  const imgPath = useRef(null);
+  const [imgPath, setImgPath] = useState(null);
 
   useEffect(() => {
     console.log(level, imgPath);
     switch (level) {
       case '매우 나쁨':
-        imgPath.current = verybad;
-        return;
+        setImgPath(verybad);
+        break;
       case '나쁨':
-        imgPath.current = bad;
-        return;
+        setImgPath(bad);
+        break;
       case '보통':
-        imgPath.current = soso;
-        return;
+        setImgPath(soso);
+        break;
       case '좋음':
-        imgPath.current = good;
-        return;
+        setImgPath(good);
+        break;
       default:
-        imgPath.current = soso;
+        break;
     }
-  }, [level]);
+  }, [level, imgPath]);
 
   return (
     <PmDetailImageBlock>
-      {imgPath.current && (
-        <img src={imgPath.current} alt="sky" className="sky-img" />
-      )}
+      {imgPath && <img src={imgPath} alt="sky" className="sky-img" />}
     </PmDetailImageBlock>
   );
 };
