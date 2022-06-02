@@ -10,13 +10,25 @@
 ***
 
 # [🌐 배포](https://thisisyjin.github.io/PM/)
+> ❗️ Mixed Content 문제로 사이트 설정 - 안전하지 않은 콘텐츠 (허용) 설정 필요.
 
-## [ver.1](https://thisisyjin.github.io/PM/)
-- redux 없이 react-hooks 로 제작한 버전 
-- ❗️ mixed content 문제 -> 아직 해결중에 있음. (백엔드 구현 후 다시 수정)
+<br>
+    
+# [👍 배포 v2](https://thisisyjin.github.io/PMv2/) - 권장 
+> 🛠 Mock Server에 API를 생성하여 데이터를 가져오는 방법으로 해결함. <br>
+> [해당 Repo](https://github.com/thisisyjin/PMv2)에 해결 방법 기술함.
 
-## [ver.2](https://github.com/thisisyjin/PM/tree/redux)
+
+***
+
+## Branch 설명
+
+### [ver1 = main](https://thisisyjin.github.io/PM/)
+- redux 없이 react-hooks 로 제작한 버전
+
+### [ver1-(2) = redux](https://github.com/thisisyjin/PM/tree/redux)
 - redux 사용. (데이터 양이 많지 않아서 hook으로도 충분히 구현 가능하긴 함.)
+- redux-actions / react-redux 사용.
 - 배포버전은 따로 X (ver.1과 동일하게 동작함)
 
 ***
